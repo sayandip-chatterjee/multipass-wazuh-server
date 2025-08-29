@@ -80,17 +80,45 @@ This guide explains how to install **Wazuh Server** inside a Multipass VM and ac
 
 ------------------------------------------------------------------------
 
-## 🔄 Alternative: Port Forwarding
+## 🛠️ Wazuh Dashboard Access Troubleshooting
 
-If your VM IP is not directly reachable, forward port 443 to your host:
+If you cannot access the Wazuh Dashboard in your Multipass VM, follow these steps.
 
-``` bash
-multipass exec wazuh-vm -- sudo snap set multipass forward=tcp:0.0.0.0:8443:443
+1. Check if Wazuh Dashboard service is running
+```bash
+multipass exec wazuh-vm -- sudo systemctl status wazuh-dashboard
+```
+Expected: `active (running)`.
+
+---
+
+2. Verify Port 443 is listening
+```bash
+multipass exec wazuh-vm -- sudo ss -tlnp | grep 443
+```
+Expected output:
+```
+LISTEN 0 128 *:443
 ```
 
-Then access from host:
+---
 
-    https://127.0.0.1:8443
+3. Check Firewall (UFW)
+If UFW is enabled inside the VM, allow HTTPS:
+```bash
+multipass exec wazuh-vm -- sudo ufw status
+multipass exec wazuh-vm -- sudo ufw allow 443
+```
+
+---
+
+4. Test From Host
+Run this from your **host** machine:
+```bash
+curl -k https://10.157.193.80
+```
+The `-k` option ignores SSL warnings.  
+If you see HTML output, the dashboard is working.
 
 ------------------------------------------------------------------------
 
