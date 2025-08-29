@@ -114,6 +114,11 @@ def main():
 
     run(f"{MULTIPASS} start {vmname}")
 
+    print("\n\033[1;31mInstalling Wazuh-Server...\033[0m")
+
+    run(f"{MULTIPASS} exec {vmname} -- sudo apt update && curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh && \
+        sudo bash ./wazuh-install.sh -a -i", check=False)
+
     print("\n\033[1;33mNow starting a shell session with your VM... Let's go!\033[0m")
     wait_for_enter()
 
