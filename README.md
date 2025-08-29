@@ -1,3 +1,27 @@
+# 🚀 Ready-to-Use Wazuh Server on Multipass
+
+Deploy a production-like Wazuh stack (server + dashboard) inside a lightweight Multipass VM — safe, fast, and hassle-free.
+
+---
+
+## With a single script, you’ll get:
+
+- 🔐 Wazuh Server (manager + indexer)
+- 📊 Wazuh Dashboard for real-time monitoring
+- ⚡ Quick deployment in an isolated VM
+- 🛡️ Perfect for labs, testing, and demos without touching your host system
+
+## ✨ Why this repo?
+
+- Zero clutter on your host
+- Automatic setup of Wazuh all-in-one
+- Access the dashboard in minutes
+- Works cross-platform (Linux, macOS, Windows with Multipass)
+
+👉 Ideal for anyone who wants to try out Wazuh quickly without complex configuration.
+
+---
+
 # Wazuh Server Installation in Multipass VM (Ubuntu)
 
 This guide explains how to install **Wazuh Server** inside a Multipass VM and access the **Wazuh Dashboard** from your host machine.
