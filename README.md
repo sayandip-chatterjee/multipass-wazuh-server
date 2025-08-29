@@ -7,10 +7,10 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
 ## 📑 Table of Contents
 
 - [🚀 Features](#-features)
-- [🛠️ Requirements](#️-requirements)
+- [🛠️ Requirements](#-requirements)
 - [📦 Installation & Usage](#-installation--usage)
 - [📊 Accessing the Dashboard](#-accessing-the-dashboard)
-- [🛠️ Wazuh Dashboard Access Troubleshooting](#-wazuh-dashboard-access-troubleshooting)
+- [🛠️ Wazuh Dashboard Troubleshooting](#-wazuh-dashboard-troubleshooting)
 
 ---
 
@@ -27,6 +27,37 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
     - Works cross-platform (Linux, macOS, Windows with Multipass)
 
 👉 Ideal for anyone who wants to try out Wazuh quickly without complex configuration.
+
+---
+
+## 🛠️ Requirements
+- OS : Ubuntu (tested on **22.04+**) _or_ Windows (tested on **Windows11**)
+- Interpreter/Runtime : **Python 3.8+** (MUST be installed in the system)
+
+---
+
+## 📦 Installation & Usage  
+
+[LINUX] Clone the repository and run the setup script:
+```bash
+git clone https://github.com/sayandip-chatterjee/multipass-wazuh-server.git
+cd multipass-wazuh-server/
+python3 setup_wazuh_server.py
+```
+
+[WINDOWS] Ensure all the steps are done as mentioed:
+```bash
+- In the Windows machine BIOS setup, make sure that virtualization is turned on
+- Install git bash - https://git-scm.com/downloads/win and close the git bash window, do not clone yet.
+- Install python3.8 from Microsoft Store
+- Go to Windows Features from the Start Menu -> Search and make sure You enable the
+  "HyperV", "Virtual Machine Platform", and the "Windows Hypervisor Platform" to run the VM.
+- Restart the machine.
+- Open powershell (NOT AS Administrator)
+- git clone https://github.com/sayandip-chatterjee/multipass-wazuh-server.git
+- cd multipass-wazuh-server/
+- python3 setup_wazuh_server.py
+```
 
 ---
 
@@ -65,13 +96,11 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
     > ⚠️ You may see a browser warning about a self-signed SSL
     > certificate --- just continue.
 
-------------------------------------------------------------------------
+---
 
-## 🛠️ Wazuh Dashboard Access Troubleshooting
+## 🛠️ Wazuh Dashboard Troubleshooting
 
-If you cannot access the Wazuh Dashboard in your Multipass VM, follow these steps.
-
-1. Check if Wazuh Dashboard service is running
+1. **Check if Wazuh Dashboard service is running**
 ```bash
 multipass exec wazuh-vm -- sudo systemctl status wazuh-dashboard
 ```
@@ -79,7 +108,7 @@ Expected: `active (running)`.
 
 ---
 
-2. Verify Port 443 is listening
+2. **Verify Port 443 is listening**
 ```bash
 multipass exec wazuh-vm -- sudo ss -tlnp | grep 443
 ```
@@ -90,7 +119,7 @@ LISTEN 0 128 *:443
 
 ---
 
-3. Check Firewall (UFW)
+3. **Check Firewall (UFW)**
 If UFW is enabled inside the VM, allow HTTPS:
 ```bash
 multipass exec wazuh-vm -- sudo ufw status
@@ -99,7 +128,7 @@ multipass exec wazuh-vm -- sudo ufw allow 443
 
 ---
 
-4. Test From Host
+4. **Test From Host**
 Run this from your **host** machine:
 ```bash
 curl -k https://10.157.193.80
