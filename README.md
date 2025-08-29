@@ -7,10 +7,10 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
 ## 📑 Table of Contents
 
 - [🚀 Features](#-features)
-- [🛠️ Requirements](#-requirements)
+- [🛠 Requirements](#requirements)
 - [📦 Installation & Usage](#-installation--usage)
 - [📊 Accessing the Dashboard](#-accessing-the-dashboard)
-- [🛠️ Wazuh Dashboard Troubleshooting](#-wazuh-dashboard-troubleshooting)
+- [🛠️ Wazuh Dashboard Troubleshooting](#wazuh-dashboard-troubleshooting)
 
 ---
 
@@ -30,7 +30,8 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
 
 ---
 
-## 🛠️ Requirements
+## 🛠️ Requirements <a name="requirements"></a>
+
 - OS : Ubuntu (tested on **22.04+**) _or_ Windows (tested on **Windows11**)
 - Interpreter/Runtime : **Python 3.8+** (MUST be installed in the system)
 
@@ -98,7 +99,7 @@ python3 setup_wazuh_server.py
 
 ---
 
-## 🛠️ Wazuh Dashboard Troubleshooting
+## 🛠️ Wazuh Dashboard Troubleshooting <a name="wazuh-dashboard-troubleshooting"></a>
 
 1. **Check if Wazuh Dashboard service is running**
 ```bash
