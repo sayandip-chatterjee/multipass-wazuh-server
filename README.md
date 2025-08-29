@@ -1,73 +1,36 @@
 # 🚀 Ready-to-Use Wazuh Server on Multipass
 
-Deploy a production-like Wazuh stack (server + dashboard) inside a lightweight Multipass VM — safe, fast, and hassle-free.
+Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) inside a lightweight Multipass VM — safe, fast, and hassle-free.
 
 ---
 
-## With a single script, you’ll get:
+## 📑 Table of Contents
+
+- [🚀 Features](#-features)
+- [🛠️ Requirements](#️-requirements)
+- [📦 Installation & Usage](#-installation--usage)
+- [📊 Accessing the Dashboard](#-accessing-the-dashboard)
+- [🛠️ Wazuh Dashboard Access Troubleshooting](#-wazuh-dashboard-access-troubleshooting)
+
+---
+
+## 🚀 Features
 
 - 🔐 Wazuh Server (manager + indexer)
 - 📊 Wazuh Dashboard for real-time monitoring
 - ⚡ Quick deployment in an isolated VM
 - 🛡️ Perfect for labs, testing, and demos without touching your host system
-
-## ✨ Why this repo?
-
-- Zero clutter on your host
-- Automatic setup of Wazuh all-in-one
-- Access the dashboard in minutes
-- Works cross-platform (Linux, macOS, Windows with Multipass)
+- ✨ Why this repo?
+    - Zero clutter on your host
+    - Automatic setup of Wazuh all-in-one
+    - Access the dashboard in minutes
+    - Works cross-platform (Linux, macOS, Windows with Multipass)
 
 👉 Ideal for anyone who wants to try out Wazuh quickly without complex configuration.
 
 ---
 
-# Wazuh Server Installation in Multipass VM (Ubuntu)
-
-This guide explains how to install **Wazuh Server** inside a Multipass VM and access the **Wazuh Dashboard** from your host machine.
-
-------------------------------------------------------------------------
-
-## 🚀 Installation
-
-1.  **Download and run the installer (all-in-one)**
-
-    ``` bash
-    curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh
-    sudo bash ./wazuh-install.sh -a
-    ```
-
-    This installs:
-
-    -   Wazuh Manager
-    -   Wazuh Indexer
-    -   Wazuh Dashboard
-
-2.  **(Optional and NOT RECOMMENDED) Install Wazuh Agent on the same VM**
-
-    ``` bash
-    sudo apt update
-    sudo apt install wazuh-agent
-    ```
-
-    Configure agent to send logs to the local manager:
-
-    ``` bash
-    sudo nano /var/ossec/etc/ossec.conf
-    # Set the address:
-    <address>127.0.0.1</address>
-    ```
-
-    Then start the agent:
-
-    ``` bash
-    sudo systemctl daemon-reload
-    sudo systemctl enable --now wazuh-agent
-    ```
-
-------------------------------------------------------------------------
-
-## 🌐 Accessing the Dashboard
+## 📊 Accessing the Dashboard
 
 1.  **Get your Multipass VM IP**
 
@@ -145,11 +108,3 @@ The `-k` option ignores SSL warnings.
 If you see HTML output, the dashboard is working.
 
 ------------------------------------------------------------------------
-
-## ✅ Summary
-
--   Install with: `wazuh-install.sh -a`
--   Access via: `https://<VM_IP>` or forwarded port
--   Default user: `admin`
--   Password: stored in
-    `/var/ossec/api/configuration/auth/credentials.json`
