@@ -172,6 +172,7 @@ Click on Deploy new Agent at the upper left section
 Select the platform and other essentials and get the command needed to run from the host where we intend to install the agent.
 
 **NOTE :**
+
 **- Use a multipass ubuntu VM and install agent there for linux agent testing!**
 **- Use a windows VM on virtualbox or vmware and install the agent there for windows agent testing!**
 
