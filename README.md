@@ -15,6 +15,7 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
 - [📦 Installation & Usage](#-installation--usage)
 - [📊 Accessing the Dashboard](#-accessing-the-dashboard)
 - [🛠️ Wazuh Dashboard Troubleshooting](#wazuh-dashboard-troubleshooting)
+- [🧹 Cleanup](#-cleanup)
 
 ---
 
@@ -142,3 +143,17 @@ The `-k` option ignores SSL warnings.
 If you see HTML output, the dashboard is working.
 
 ------------------------------------------------------------------------
+
+## 🧹 Cleanup
+
+```bash
+multipass list
+multipass delete <NAME>
+multipass purge
+```
+
+In case you have accidentally deleted and not purged yet
+```
+multipass list
+multipass recover <NAME>
+```
