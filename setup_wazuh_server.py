@@ -11,11 +11,9 @@ else:
     MULTIPASS = "multipass"
 
 def check_ports():
-    # List of critical ports for Wazuh
     critical_ports = [1514, 1515]
 
     for port in critical_ports:
-        # Get PIDs using the port
         result = subprocess.run(
             f"sudo lsof -ti :{port}",
             shell=True,
@@ -127,6 +125,7 @@ def main():
     wait_for_enter("Press ENTER to continue...")
 
     check_multipass()
+    check_ports()
 
     vmname = input("\n\033[1;31mPlease type a unique name for your VM instance:\033[0m ")
 
@@ -137,8 +136,6 @@ def main():
     wait_for_enter()
 
     run(f"{MULTIPASS} start {vmname}")
-
-    check_ports()
 
     print("\n\033[1;31mInstalling Wazuh-Server...\033[0m")
 
