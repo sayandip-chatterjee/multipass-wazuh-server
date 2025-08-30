@@ -10,6 +10,30 @@ if SYSTEM == "windows":
 else:
     MULTIPASS = "multipass"
 
+def check_ports():
+    # List of critical ports for Wazuh
+    critical_ports = [1514, 1515]
+
+    for port in critical_ports:
+        # Get PIDs using the port
+        result = subprocess.run(
+            f"sudo lsof -ti :{port}",
+            shell=True,
+            capture_output=True,
+            text=True
+        )
+        pids = result.stdout.strip()
+        if pids:
+            print(f"❌ Port {port} is already in use by PID(s): {pids}")
+            print("Please free this port before running the installer.")
+            result = subprocess.run(f"ps aux | grep {pids}", shell=True, capture_output=True, text=True)
+            print(f"Process using the port :")
+            print(f"{result.stdout.strip()}")
+            print(f"You can use command 'sudo kill -9 {pids}' to free the port, then re-trigger the installation .")
+            sys.exit(1)
+
+    print("✅ All required ports are free. Continuing installation...")
+
 def add_env_script():
     mp_path = r"C:\Program Files\Multipass\bin"
     if os.path.exists(mp_path):
@@ -114,10 +138,11 @@ def main():
 
     run(f"{MULTIPASS} start {vmname}")
 
+    check_ports()
+
     print("\n\033[1;31mInstalling Wazuh-Server...\033[0m")
 
-    run(f"{MULTIPASS} exec {vmname} -- sudo apt update && curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh && \
-        sudo bash ./wazuh-install.sh -a", check=False)
+    run(f"{MULTIPASS} exec {vmname} -- sudo apt update && curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh && sudo bash ./wazuh-install.sh -a", check=False)
 
     print("\n\033[1;33mNow starting a shell session with your VM... Let's go!\033[0m")
     wait_for_enter()
