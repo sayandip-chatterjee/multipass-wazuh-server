@@ -15,6 +15,7 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
 - [📦 Installation & Usage](#-installation--usage)
 - [📊 Accessing the Dashboard](#-accessing-the-dashboard)
 - [🛠️ Wazuh Dashboard Troubleshooting](#wazuh-dashboard-troubleshooting)
+- [📤 Provision Wazuh Agent from Dashboard](#provision-wazuh-agent-from-dashboard)
 - [🧹 Cleanup](#-cleanup)
 
 ---
@@ -143,6 +144,43 @@ The `-k` option ignores SSL warnings.
 If you see HTML output, the dashboard is working.
 
 ------------------------------------------------------------------------
+
+## 📤 Provision Wazuh Agent from Dashboard <a name="provision-wazuh-agent-from-dashboard"></a>
+
+<img width="573" height="65" alt="image" src="https://github.com/user-attachments/assets/5cb39be2-3a93-45aa-aad8-815a22fd0a06" />
+
+Open browser and go to the Ipv4 address with https://
+
+<img width="1920" height="960" alt="image" src="https://github.com/user-attachments/assets/4dfffc02-d02b-4016-a4f5-d315c5334257" />
+
+Go to Advanced and Proceed / Accept the Risk and Continue
+
+<img width="1920" height="954" alt="image" src="https://github.com/user-attachments/assets/d8e64876-1c87-482a-a08a-9e0a700c92db" />
+
+<img width="672" height="125" alt="image" src="https://github.com/user-attachments/assets/527dc4f1-743d-44f7-9b96-f7f5debf36ce" />
+
+Use the creds output at the terminal of the script runtime
+
+<img width="1920" height="954" alt="image" src="https://github.com/user-attachments/assets/00460479-ca6f-4c51-879b-50fd430e65b6" />
+
+Click on Deploy new Agent at the upper left section
+
+<img width="1920" height="954" alt="image" src="https://github.com/user-attachments/assets/fd7a60fa-dfcb-4b7a-b2ec-17baac781187" />
+
+<img width="1920" height="954" alt="image" src="https://github.com/user-attachments/assets/77e15ae4-4406-4e84-8482-4dbf173f1411" />
+
+
+Select the platform and other essentials and get the command needed to run from the host where we intend to install the agent.
+
+
+
+
+
+
+
+
+
+---
 
 ## 🧹 Cleanup
 
