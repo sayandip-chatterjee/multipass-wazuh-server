@@ -29,8 +29,9 @@ def check_ports():
             print(f"Process using the port :")
             print(f"{result.stdout.strip()}")
             print()
-            print(f"Check 'ps aux | grep <pname>' and then kill the pid to free all the parent/child processes associated with it.")
-            print(f"You can use command 'sudo kill -9 {pids}' to free the port, then re-trigger the installation .")
+            print(f"Check 'ps aux | grep <pname>' and find out the service name associated with the PID.")
+            print(f"Do a gracefull shutdown 'sudo systemctl stop <sname>' .")
+            print(f"CAUTION!!! You can also use command 'sudo kill -9 {pids}' to free the port, then re-trigger the installation .")
             sys.exit(1)
 
     print("✅ All required ports are free. Continuing installation...")
