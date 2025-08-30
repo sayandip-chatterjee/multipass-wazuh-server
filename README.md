@@ -174,6 +174,7 @@ Select the platform and other essentials and get the command needed to run from 
 **NOTE :**
 
 **- Use a multipass ubuntu VM and install agent there for linux agent testing!**
+
 **- Use a windows VM on virtualbox or vmware and install the agent there for windows agent testing!**
 
 ---
