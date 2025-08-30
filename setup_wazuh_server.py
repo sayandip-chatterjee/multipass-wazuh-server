@@ -24,9 +24,12 @@ def check_ports():
         if pids:
             print(f"❌ Port {port} is already in use by PID(s): {pids}")
             print("Please free this port before running the installer.")
-            result = subprocess.run(f"ps aux | grep {pids}", shell=True, capture_output=True, text=True)
+            result = subprocess.run(f"ps aux | grep {pids} | head -n 1", shell=True, capture_output=True, text=True)
+            print()
             print(f"Process using the port :")
             print(f"{result.stdout.strip()}")
+            print()
+            print(f"Check 'ps aux | grep <pname>' and then kill the pid to free all the parent/child processes associated with it.")
             print(f"You can use command 'sudo kill -9 {pids}' to free the port, then re-trigger the installation .")
             sys.exit(1)
 
