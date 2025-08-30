@@ -169,16 +169,11 @@ Click on Deploy new Agent at the upper left section
 
 <img width="1920" height="954" alt="image" src="https://github.com/user-attachments/assets/77e15ae4-4406-4e84-8482-4dbf173f1411" />
 
-
 Select the platform and other essentials and get the command needed to run from the host where we intend to install the agent.
 
-
-
-
-
-
-
-
+**NOTE :**
+**- Use a multipass ubuntu VM and install agent there for linux agent testing!**
+**- Use a windows VM on virtualbox or vmware and install the agent there for windows agent testing!**
 
 ---
 
