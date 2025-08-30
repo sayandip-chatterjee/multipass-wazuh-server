@@ -1,7 +1,10 @@
 # 🚀 Ready-to-Use Wazuh Server on Multipass
 
 Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) inside a lightweight Multipass VM — safe, fast, and hassle-free. 
+
 **_NOTE : Requires a wazuh-agent (Windows/Linux) to connect to this server for further analysis!_**
+
+❌ DO NOT INSTALL WAZUH AGENT AND SERVER ON THE SAME VM
 
 ---
 
