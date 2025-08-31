@@ -40,6 +40,7 @@ Deploy a production-like Wazuh Server stack (manager + indexer + dashboard) insi
 
 - OS : Ubuntu (tested on **22.04+**) _or_ Windows (tested on **Windows11**)
 - Interpreter/Runtime : **Python 3.8+** (MUST be installed in the system)
+- Ensure that the wazuh-server and wazuh-agent versions are same.(Using 4.12 in this repo)
 
 ---
 
