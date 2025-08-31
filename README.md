@@ -177,6 +177,8 @@ Select the platform and other essentials and get the command needed to run from 
 
 **- Use a windows VM on virtualbox or vmware and install the agent there for windows agent testing!**
 
+**- DO NOT USE YOUR LOCAL HOST MACHINE. DANGEROUS!!!**
+
 ---
 
 ## 🧹 Cleanup
